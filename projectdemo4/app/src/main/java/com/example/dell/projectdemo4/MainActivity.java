@@ -2,6 +2,8 @@ package com.example.dell.projectdemo4;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -34,6 +36,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         banner = (Banner) fragmentManager.findFragmentById(R.id.banner);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        Fragment markerListView = getSupportFragmentManager().findFragmentById(R.id.fragmentMarker);
+        if (markerListView != null) {
+           fragmentTransaction.remove(markerListView);
+        }
+        fragmentTransaction.addToBackStack(null);
+        DialogFragment dialogFragment = new ListMaker();
+       // ((ListMaker) dialogFragment).setUp(this);
+       // dialogFragment.show(fragmentTransaction,"dialog");
         currentMarker = null;
         banner.truyen("21.00619245","105.84313945");
         banner.setClick(MainActivity.this);

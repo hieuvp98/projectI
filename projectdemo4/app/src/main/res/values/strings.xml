@@ -7,4 +7,5 @@
     <string name="save">Save</string>
     <string name="go">GO</string>
     <string name="clear">DELETE</string>
+    <string name="dialog">dialog</string>
 </resources>

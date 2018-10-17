@@ -27,4 +27,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <fragment
+        android:id="@+id/fragmentMarker"
+        android:name="com.example.dell.projectdemo4.ListMaker"
+        android:layout_width="342dp"
+        android:layout_height="514dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:tag="@string/dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/map" />
+
 </android.support.constraint.ConstraintLayout>
