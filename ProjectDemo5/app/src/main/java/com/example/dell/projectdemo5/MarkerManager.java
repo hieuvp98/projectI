@@ -1,8 +1,5 @@
 package com.example.dell.projectdemo5;
 
-import android.content.Context;
-import android.provider.ContactsContract;
-
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -39,5 +36,13 @@ public class MarkerManager {
 
     public void setMarkerOptionsList(List<MarkerOptions> markerOptionsList) {
         this.markerOptionsList = markerOptionsList;
+    }
+
+    public List<Marker> getMarkerList() {
+        return markerList;
+    }
+
+    public void setMarkerList(List<Marker> markerList) {
+        this.markerList = markerList;
     }
 }

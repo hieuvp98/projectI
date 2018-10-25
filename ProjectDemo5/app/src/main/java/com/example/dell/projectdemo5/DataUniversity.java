@@ -44,7 +44,6 @@ public class DataUniversity  {
         protected Void doInBackground(URL... urls) {
             getUniversity();
             return null;
-
         }
 
         @Override
@@ -67,8 +66,11 @@ public class DataUniversity  {
                 URLConnection con = murl.openConnection();
                 BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String textInLine;
+                int count = 0;
                 while ((textInLine = br.readLine()) != null) {
-                    universityList.add(new University(textInLine));
+                    University u = new University(textInLine);
+                    u.setZindex(count++);
+                    universityList.add(u);
                 }
             } catch (IOException e) {
                 e.printStackTrace();

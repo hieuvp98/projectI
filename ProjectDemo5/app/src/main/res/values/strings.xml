@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Project Demo 6</string>
     <string name="API_key">AIzaSyDBeohVdoyFTmYzEDrryUKLDxMXsfumQUI</string>
-    <string name="test">TEST</string>
+    <string name="listUni">DANH SÁCH TRƯỜNG </string>
     <string name="todo">TODO</string>
+    <string name="back">BACK</string>
+    <string name="test">Test</string>
 </resources>

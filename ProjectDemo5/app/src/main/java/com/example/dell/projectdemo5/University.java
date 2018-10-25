@@ -2,6 +2,7 @@ package com.example.dell.projectdemo5;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -12,7 +13,7 @@ public class University implements Parcelable {
     private String snippet;  // mo ta
     private double lat,lng; // vi do, kinh do
     private  int quality;    // 0 to 4
-
+    private int zindex;
     public University() {
     }
 
@@ -46,12 +47,13 @@ public class University implements Parcelable {
         this.snippet = "";
     }
 
-    protected University(Parcel in) {
+    private University(Parcel in) {
         name = in.readString();
         snippet = in.readString();
         lat = in.readDouble();
         lng = in.readDouble();
         quality = in.readInt();
+        zindex = in.readInt();
     }
 
     public static final Creator<University> CREATOR = new Creator<University>() {
@@ -66,6 +68,7 @@ public class University implements Parcelable {
         }
     };
 
+    @NonNull
     @Override
     public String toString()
     {
@@ -76,6 +79,7 @@ public class University implements Parcelable {
         MarkerOptions m = new MarkerOptions();
         m.title(this.name);
         m.position(new LatLng(this.lat,this.lng));
+        m.zIndex((float) this.zindex);
         switch (this.quality)
         {
             case 0: {
@@ -100,6 +104,14 @@ public class University implements Parcelable {
             }
         }
         return m;
+    }
+
+    public int getZindex() {
+        return zindex;
+    }
+
+    public void setZindex(int zindex) {
+        this.zindex = zindex;
     }
 
     public String getName() {
@@ -154,5 +166,6 @@ public class University implements Parcelable {
         dest.writeDouble(lat);
         dest.writeDouble(lng);
         dest.writeInt(quality);
+        dest.writeInt(zindex);
     }
 }
